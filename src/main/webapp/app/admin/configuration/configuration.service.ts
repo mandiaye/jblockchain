@@ -31,7 +31,7 @@ export class JhiConfigurationService {
     // This code is for Spring Boot 2
     if (res['contexts'] !== undefined) {
       for (const key in res['contexts']) {
-        // If the key is not bootstrap, it will be the ApplicationContext Id
+        // If the pairKey is not bootstrap, it will be the ApplicationContext Id
         // For default app, it is baseName
         // For microservice, it is baseName-1
         if (!key.startsWith('bootstrap')) {

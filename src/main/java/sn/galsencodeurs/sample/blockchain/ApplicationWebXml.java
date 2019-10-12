@@ -1,8 +1,9 @@
 package sn.galsencodeurs.sample.blockchain;
 
-import sn.galsencodeurs.sample.blockchain.config.DefaultProfileUtil;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+import sn.galsencodeurs.sample.blockchain.config.DefaultProfileUtil;
 
 /**
  * This is a helper Java class that provides an alternative to creating a {@code web.xml}.

@@ -1,23 +1,21 @@
 package sn.galsencodeurs.sample.blockchain.web.rest;
 
-import sn.galsencodeurs.sample.blockchain.security.SecurityUtils;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+import com.fasterxml.jackson.annotation.JsonCreator;
+
+import sn.galsencodeurs.sample.blockchain.security.SecurityUtils;
 
 @RestController
 @RequestMapping("/api")
 public class AccountResource {
-
-    private static class AccountResourceException extends RuntimeException {
-    }
 
     /**
      * {@code GET  /account} : get the current user.
@@ -33,6 +31,9 @@ public class AccountResource {
             .map(GrantedAuthority::getAuthority)
             .collect(Collectors.toSet());
         return new UserVM(login, authorities);
+    }
+
+    private static class AccountResourceException extends RuntimeException {
     }
 
     private static class UserVM {

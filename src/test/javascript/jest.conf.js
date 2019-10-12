@@ -42,7 +42,7 @@ function mapTypescriptAliasToJestAlias(alias = {}) {
       })
       .map(([key, value]) => {
         // if Typescript alias ends with /* then in Jest:
-        // - alias key must end with /(.*)
+        // - alias pairKey must end with /(.*)
         // - alias value must end with /$1
         const regexToReplace = /(.*)\/\*$/;
         const aliasKey = key.replace(regexToReplace, '$1/(.*)');

@@ -2,19 +2,21 @@ package sn.galsencodeurs.sample.blockchain.web.websocket;
 
 import static sn.galsencodeurs.sample.blockchain.config.WebsocketConfiguration.IP_ADDRESS;
 
-import sn.galsencodeurs.sample.blockchain.web.websocket.dto.ActivityDTO;
-
 import java.security.Principal;
 import java.time.Instant;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
-import org.springframework.messaging.handler.annotation.*;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
+
+import sn.galsencodeurs.sample.blockchain.web.websocket.dto.ActivityDTO;
 
 @Controller
 public class ActivityService implements ApplicationListener<SessionDisconnectEvent> {
